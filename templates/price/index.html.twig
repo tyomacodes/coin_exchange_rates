@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ message }}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <table>
+        <tr>
+            <th>Значение</th>
+            <th>Дата</th>
+        </tr>
+        {% for price in prices %}
+            <tr>
+                <td>{{ price.getRoundValue() }}</td>
+                <td>{{ price.createdAt.format(' G:i:s d M Y') }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<a href="{{ "/coin/pair"}}">Вернуться к списку монет</a>
+<a href="{{ "/call-command?pair=" }}{{ pair }}">Обновить цены</a>
+
+{% endblock %}
