@@ -52,6 +52,11 @@ class Price
         return $this->value;
     }
 
+    public function getRoundValue(): ?float
+    {
+        return round($this->value, 4);
+    }
+
     public function setValue(float $value): self
     {
         $this->value = $value;
